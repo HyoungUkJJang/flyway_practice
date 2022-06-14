@@ -161,21 +161,18 @@ ALTER TABLE member ADD COLUMN age integer DEFAULT 0
 
 ## 번외) 스크립트 네이밍 & DB Location 설정하기
 
-#### 11-1 네이밍 짓기
+#### 네이밍 짓기
 ![img_6.png](images/img_6.png)
 
 ![img.png](img.png)
 
-* prefix
+* **prefix**
   * 파일명의 V는 Version을 명시한 prefix입니다. Version을 제외한 Undo, Repetable 도 존재합니다.
     * Undo는 U를 prefix로 명시합니다.  
     * Repetable은 R을 prefix로 명시합니다.
-      * Repetable은 버전에 상관없이 계속 실행되는 스크립트를 말한다.
-      * 테스트를 편하게 진행하기 위해 member 더미데이터를 매번 추가해야 한다면?
-        * R__insert_member_data.sql 이런 식으로 사용할 수 있따.
-
-
-* 버전 명시
+      * Repetable은 버전에 상관없이 계속 실행되는 스크립트를 말한다. 만약 테스트를 편하게 진행하기 위해 member 더미데이터를 매번 추가해야 한다면 **R__insert_member_data.sql** 라는 이름으로 활용할 수 있다.
+      
+* **버전 명시**
   * 예제에서는 V1, V2 간단하게 버전을 명시해 주었지 다양하게 가능하다
     * V1__description
     * V1.1__description
@@ -184,12 +181,12 @@ ALTER TABLE member ADD COLUMN age integer DEFAULT 0
     * V20220613_description
   
 
-* description 
+* **description** 
   * 명확하게 작성해 주면 된다.
     * Member 테이블의 이름을 Manager로 바꾸려면?
       * V3__change_name_member_to_manager.sql
   
-#### 11-2 위치 지정하기
+####  위치 지정하기
 
 * 현재 위치는 main/resources/db/migration 을 고정시켜두었지만 꼭 이 위치에 저장하지 않아도 됩니다.
   * 현재 경로는 flyway의 default 설정 값입니다.
